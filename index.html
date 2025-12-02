@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sbírka na Streamer House</title>
+
+    <!-- Načtení Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Použití fontu Inter pro moderní vzhled */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Custom styl pro gradient progress baru */
+        .progress-bar-fill {
+            transition: width 1s ease-in-out;
+            background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+        }
+        /* Animace pro tlačítko */
+        .btn-donate {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-donate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5); 
+            background-color: #4338ca;
+        }
+        .btn-donate:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 min-h-screen flex items-center justify-center">
+
+    <div id="app" class="w-full max-w-3xl bg-white shadow-2xl rounded-2xl p-6 sm:p-10 border border-gray-100">
+
+        <!-- Hlava stránky -->
+        <header class="text-center mb-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
+                Streamer House Fundraiser 🏠
+            </h1>
+            <p class="text-xl text-gray-500 font-medium">
+                Cíl: <strong>Vybudovat profesionální tvůrčí centrum</strong> – <span class="font-extrabold text-orange-600">10 000 000 Kč</span>
+            </p>
+        </header>
+
+        <!-- Informace o cíli a sbírce -->
+        <div class="mb-8 p-6 bg-orange-50 rounded-xl border border-orange-300 shadow-inner">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-sm font-semibold text-orange-700 uppercase tracking-wider">
+                    Aktuální stav
+                </span>
+                <span id="progress-percentage" class="text-2xl font-extrabold text-orange-800">
+                    Načítání...
+                </span>
+            </div>
+            
+            <div id="progress-bar" class="w-full h-4 bg-gray-300 rounded-full overflow-hidden mb-4 shadow-md">
+                <div id="progress-fill" class="progress-bar-fill h-full rounded-full" style="width: 0%;"></div>
+            </div>
+
+            <div class="flex justify-between text-xl font-bold">
+                <span id="current-amount" class="text-gray-900">
+                    Načítání...
+                </span>
+                <span id="target-amount" class="text-gray-600">
+                    10 000 000 Kč
+                </span>
+            </div>
+        </div>
+        
+        <!-- Sekce Osobní Příběh a Spolupráce -->
+        <div class="mb-8 p-6 bg-gray-50 rounded-xl border border-gray-200 shadow-lg">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b pb-2">Náš společný sen: Streamer House</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Ahoj, jmenuji se Damian a jako tvůrce obsahu jsem si stanovil velký cíl: vybudovat Streamer House. To nebude jen dům, ale <strong>centrální a profesionální základna</strong> pro mne a další začínající streamery z naší komunity.
+            </p>
+            <p class="text-700 leading-relaxed mt-3">
+                Už žádné kompromisy s kvalitou. Streamer House nám konečně poskytne <strong>dedikované, odhlučněné setupy</strong> pro individuální vysílání a sdílené, plně vybavené studio pro velké kolaborace, podcasty a komunitní eventy. Váš příspěvek je investicí do <strong>budoucnosti lokální tvůrčí scény</strong>.
+            </p>
+            
+            <!-- VYZVA KE SPOLUPRÁCI - VÍCE ZVÝRAZNĚNÁ A INKLUZIVNÍ -->
+            <div class="mt-5 p-4 bg-indigo-100 rounded-lg border-l-4 border-indigo-600 shadow-md">
+                <p class="text-lg font-extrabold text-indigo-700">
+                    🤝 Nabídka Otevřeného Přístupu a Spolupráce!
+                </p>
+                <p class="text-indigo-800 leading-snug mt-1">
+                    Tento projekt je stavěn pro celou komunitu! Streamer House bude mít <strong>otěvřený přístup pro všechny ambiciózní streamery a tvůrce obsahu</strong>, kteří chtějí růst, využívat profesionální zázemí a tvořit. Ať už jste velký nebo malý tvůrce, <strong>ozvěte se!</strong> Hledáme partnery, kolegy a lidi, kteří se chtějí aktivně podílet na tvorbě obsahu nové generace.
+                </p>
+            </div>
+            
+            <p class="text-gray-700 leading-relaxed mt-4 font-semibold text-center text-orange-600">
+                Podpořte nás v tomto velkém kroku. Děkujeme za důvěru a za to, že tvoříte naši komunitu!
+            </p>
+        </div>
+        
+        <!-- Sekce Klíčové Benefity -->
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Co Streamer House přinese?</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
+                    <span class="text-3xl mb-2 block">🎙️</span>
+                    <p class="font-semibold text-purple-700">Profesionální Studio</p>
+                    <p class="text-sm text-gray-600">Dedikované, odhlučněné prostory pro natáčení a podcasty.</p>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
+                    <span class="text-3xl mb-2 block">⚡</span>
+                    <p class="font-semibold text-purple-700">Stabilní Konekce</p>
+                    <p class="text-sm text-gray-600">Ultra-rychlý a spolehlivý internet pro 4K streamování bez výpadků.</p>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
+                    <span class="text-3xl mb-2 block">🤝</span>
+                    <p class="font-semibold text-purple-700">Kolaborace</p>
+                    <p class="text-sm text-gray-600">Snadná tvorba společného obsahu, daily vlogy a akce s komunitou.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Odkaz pro darování -->
+        <div class="text-center p-6 bg-gray-100 rounded-xl shadow-inner">
+            <p class="mb-5 text-gray-600 text-lg font-medium">
+                Každý dar nás posouvá blíž k realizaci tohoto komunitního centra. Děkujeme za podporu!
+            </p>
+            
+            <!-- Tlačítko PŘESMĚROVÁNÍ na Revolut.me -->
+            <a href="https://revolut.me/damianstanek" target="_blank"
+                id="donate-link"
+                class="btn-donate w-full sm:w-2/3 lg:w-1/2 px-8 py-4 bg-indigo-600 text-white font-extrabold rounded-xl shadow-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 text-lg">
+                Darovat na Streamer House 💸
+            </a>
+
+            <!-- Zpráva o administraci - TATO SEKCE JE ODSTRANĚNA -->
+            
+        </div>
+    </div>
+
+    <!-- Moduly Firebase SDK - Používají se jen, pokud je detekována konfigurace -->
+    <script type="module">
+        // Importy jsou nyní chráněny, aby nepadaly na lokálním disku
+        let initializeApp, getAuth, signInAnonymously, signInWithCustomToken, getFirestore, doc, onSnapshot, setLogLevel;
+
+        // --- GLOBÁLNÍ KONFIGURACE A PROMĚNNÉ ---
+        const TARGET_AMOUNT = 10000000;
+        const REVOLUT_LINK = "https://revolut.me/damianstanek";
+        let db;
+        let isLocalMode = false;
+        
+        // Načtení globálních proměnných z Canvas prostředí
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfigRaw = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const firebaseConfig = JSON.parse(firebaseConfigRaw);
+
+        // Cesty k DB
+        const COLLECTION_PATH = `/artifacts/${appId}/public/data/house_fundraiser`;
+        const DOC_REF_PATH = 'progress';
+
+        // Elementy UI
+        const currentAmountEl = document.getElementById('current-amount');
+        const progressFillEl = document.getElementById('progress-fill');
+        const progressPercentageEl = document.getElementById('progress-percentage');
+        const donateLinkEl = document.getElementById('donate-link');
+        // localModeWarningEl už není potřeba
+
+        /**
+         * Formátuje číslo jako měnu Kč.
+         */
+        function formatCZK(amount) {
+            return new Intl.NumberFormat('cs-CZ', {
+                style: 'currency',
+                currency: 'CZK',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
+        
+        /**
+         * Aktualizuje uživatelské rozhraní na základě aktuálně vybrané částky.
+         */
+        function updateUI(totalRaised) {
+            const percentage = Math.min((totalRaised / TARGET_AMOUNT) * 100, 100);
+
+            currentAmountEl.textContent = formatCZK(totalRaised);
+            progressFillEl.style.width = `${percentage}%`;
+            progressPercentageEl.textContent = `${percentage.toFixed(2)}%`;
+
+            if (totalRaised >= TARGET_AMOUNT) {
+                donateLinkEl.textContent = "Cíl dosažen! 🎉";
+                donateLinkEl.removeAttribute('href');
+                donateLinkEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                donateLinkEl.classList.add('bg-green-600', 'cursor-not-allowed');
+            } else {
+                 donateLinkEl.setAttribute('href', REVOLUT_LINK);
+                 donateLinkEl.textContent = "Darovat na Streamer House 💸";
+                 donateLinkEl.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+                 donateLinkEl.classList.remove('bg-green-600', 'cursor-not-allowed');
+            }
+        }
+
+        /**
+         * Inicializuje Firebase NEBO spouští lokální simulaci.
+         */
+        async function initializeAppAndAuth() {
+            // Kontrola pro lokální spuštění: Chybí-li konfigurační klíč nebo token.
+            if (Object.keys(firebaseConfig).length === 0 || !initialAuthToken) {
+                isLocalMode = true;
+                console.warn("Spuštěno v LOKÁLNÍM MÓDU. DB připojení přeskočeno.");
+                
+                // Nastavíme simulovanou částku
+                updateUI(SIMULATED_START_AMOUNT); 
+                return; // Ukončíme, dál se kód DB neprovádí
+            }
+            
+            // --- ONLINE/CANVAS REŽIM (DB) ---
+            // Dynamické načtení importů (pro online režim)
+            try {
+                // Oprava importních cest pro zvýšení stability načítání modulů
+                const firebaseModules = await import("https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js");
+                initializeApp = firebaseModules.initializeApp;
+                const authModules = await import("https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js");
+                getAuth = authModules.getAuth;
+                signInAnonymously = authModules.signInAnonymously;
+                signInWithCustomToken = authModules.signInWithCustomToken;
+                const firestoreModules = await import("https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js");
+                getFirestore = firestoreModules.getFirestore;
+                doc = firestoreModules.doc;
+                onSnapshot = firestoreModules.onSnapshot;
+                setLogLevel = firestoreModules.setLogLevel;
+
+                setLogLevel('Debug');
+
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                const auth = getAuth(app);
+
+                // Autentizace pro čtení a zápis
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                
+                setupRealtimeListener();
+
+            } catch (error) {
+                console.error("Chyba při inicializaci nebo autentizaci:", error);
+                currentAmountEl.textContent = "Chyba DB";
+                progressPercentageEl.textContent = "ERR";
+                donateLinkEl.textContent = "Data nedostupná (Chyba DB)";
+                donateLinkEl.classList.add('bg-gray-400', 'pointer-events-none');
+            }
+        }
+
+
+        /**
+         * Nastaví real-time listener pro sledování změn v databázi (Pouze Online).
+         */
+        function setupRealtimeListener() {
+            if (!db) return;
+
+            const docRef = doc(db, COLLECTION_PATH, DOC_REF_PATH);
+            
+            // Listener pro změny v reálném čase
+            onSnapshot(docRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    const totalRaised = data.totalRaised || 0;
+                    updateUI(totalRaised);
+                } else {
+                    console.log("Dokument 'progress' neexistuje, zobrazuji 0.");
+                    updateUI(0);
+                }
+            }, (error) => {
+                console.error("Chyba v real-time listeneru (onSnapshot):", error);
+                updateUI(0); // Zobrazíme nulu v případě chyby
+            });
+        }
+
+        // =================================================================
+        // !! DŮLEŽITÉ: ÚPRAVA SIMULOVANÉ ČÁSTKY PRO LOKÁLNÍ TESTOVÁNÍ !!
+        // Tuto konstantu můžete změnit, pokud testujete bez připojení k Firebase.
+        // Tato hodnota se POUZE použije, když je aplikace v "LOKÁLNÍM MÓDU".
+        const SIMULATED_START_AMOUNT = 0; 
+        // =================================================================
+        
+        window.onload = initializeAppAndAuth;
+
+    </script>
+</body>
+</html>

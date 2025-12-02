@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sbírka na Streamer House</title>
+    <title id="page-title">Sbírka na Streamer House</title>
 
     <!-- Načtení Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,18 +31,31 @@
         .btn-donate:active {
             transform: translateY(0);
         }
+        /* Styl pro přepínač jazyků */
+        .lang-switch button.active {
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8 min-h-screen flex items-center justify-center">
 
     <div id="app" class="w-full max-w-3xl bg-white shadow-2xl rounded-2xl p-6 sm:p-10 border border-gray-100">
 
+        <!-- Přepínač Jazyků -->
+        <div class="lang-switch text-right mb-4">
+            <button id="lang-cs" class="lang-btn text-sm text-gray-500 hover:text-gray-700 transition" data-lang="cs">Česky</button>
+            <span class="text-gray-400">|</span>
+            <button id="lang-en" class="lang-btn text-sm text-gray-500 hover:text-gray-700 transition" data-lang="en">English</button>
+        </div>
+
         <!-- Hlava stránky -->
         <header class="text-center mb-6">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
+            <h1 id="header-title" class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
                 Streamer House Fundraiser 🏠
             </h1>
-            <p class="text-xl text-gray-500 font-medium">
+            <p id="header-subtitle" class="text-xl text-gray-500 font-medium">
                 Cíl: <strong>Vybudovat profesionální tvůrčí centrum</strong> – <span class="font-extrabold text-orange-600">10 000 000 Kč</span>
             </p>
         </header>
@@ -50,7 +63,7 @@
         <!-- Informace o cíli a sbírce -->
         <div class="mb-8 p-6 bg-orange-50 rounded-xl border border-orange-300 shadow-inner">
             <div class="flex justify-between items-center mb-3">
-                <span class="text-sm font-semibold text-orange-700 uppercase tracking-wider">
+                <span id="status-label" class="text-sm font-semibold text-orange-700 uppercase tracking-wider">
                     Aktuální stav
                 </span>
                 <span id="progress-percentage" class="text-2xl font-extrabold text-orange-800">
@@ -74,54 +87,54 @@
         
         <!-- Sekce Osobní Příběh a Spolupráce -->
         <div class="mb-8 p-6 bg-gray-50 rounded-xl border border-gray-200 shadow-lg">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b pb-2">Náš společný sen: Streamer House</h2>
-            <p class="text-gray-700 leading-relaxed">
+            <h2 id="story-title" class="text-3xl font-bold text-gray-800 mb-4 border-b pb-2">Náš společný sen: Streamer House</h2>
+            <p id="story-p1" class="text-gray-700 leading-relaxed">
                 Ahoj, jmenuji se Damian a jako tvůrce obsahu jsem si stanovil velký cíl: vybudovat Streamer House. To nebude jen dům, ale <strong>centrální a profesionální základna</strong> pro mne a další začínající streamery z naší komunity.
             </p>
-            <p class="text-700 leading-relaxed mt-3">
+            <p id="story-p2" class="text-700 leading-relaxed mt-3">
                 Už žádné kompromisy s kvalitou. Streamer House nám konečně poskytne <strong>dedikované, odhlučněné setupy</strong> pro individuální vysílání a sdílené, plně vybavené studio pro velké kolaborace, podcasty a komunitní eventy. Váš příspěvek je investicí do <strong>budoucnosti lokální tvůrčí scény</strong>.
             </p>
             
             <!-- VYZVA KE SPOLUPRÁCI - VÍCE ZVÝRAZNĚNÁ A INKLUZIVNÍ -->
             <div class="mt-5 p-4 bg-indigo-100 rounded-lg border-l-4 border-indigo-600 shadow-md">
-                <p class="text-lg font-extrabold text-indigo-700">
+                <p id="collab-title" class="text-lg font-extrabold text-indigo-700">
                     🤝 Nabídka Otevřeného Přístupu a Spolupráce!
                 </p>
-                <p class="text-indigo-800 leading-snug mt-1">
+                <p id="collab-text" class="text-indigo-800 leading-snug mt-1">
                     Tento projekt je stavěn pro celou komunitu! Streamer House bude mít <strong>otěvřený přístup pro všechny ambiciózní streamery a tvůrce obsahu</strong>, kteří chtějí růst, využívat profesionální zázemí a tvořit. Ať už jste velký nebo malý tvůrce, <strong>ozvěte se!</strong> Hledáme partnery, kolegy a lidi, kteří se chtějí aktivně podílet na tvorbě obsahu nové generace.
                 </p>
             </div>
             
-            <p class="text-gray-700 leading-relaxed mt-4 font-semibold text-center text-orange-600">
+            <p id="story-p3" class="text-gray-700 leading-relaxed mt-4 font-semibold text-center text-orange-600">
                 Podpořte nás v tomto velkém kroku. Děkujeme za důvěru a za to, že tvoříte naši komunitu!
             </p>
         </div>
         
         <!-- Sekce Klíčové Benefity -->
         <div class="mb-8">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Co Streamer House přinese?</h3>
+            <h3 id="benefits-title" class="text-2xl font-bold text-gray-800 mb-4 text-center">Co Streamer House přinese?</h3>
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
                     <span class="text-3xl mb-2 block">🎙️</span>
-                    <p class="font-semibold text-purple-700">Profesionální Studio</p>
-                    <p class="text-sm text-gray-600">Dedikované, odhlučněné prostory pro natáčení a podcasty.</p>
+                    <p id="benefit-1-title" class="font-semibold text-purple-700">Profesionální Studio</p>
+                    <p id="benefit-1-desc" class="text-sm text-gray-600">Dedikované, odhlučněné prostory pro natáčení a podcasty.</p>
                 </div>
                 <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
                     <span class="text-3xl mb-2 block">⚡</span>
-                    <p class="font-semibold text-purple-700">Stabilní Konekce</p>
-                    <p class="text-sm text-gray-600">Ultra-rychlý a spolehlivý internet pro 4K streamování bez výpadků.</p>
+                    <p id="benefit-2-title" class="font-semibold text-purple-700">Stabilní Konekce</p>
+                    <p id="benefit-2-desc" class="text-sm text-gray-600">Ultra-rychlý a spolehlivý internet pro 4K streamování bez výpadků.</p>
                 </div>
                 <div class="p-4 bg-purple-50 rounded-lg shadow-md border border-purple-200 text-center">
                     <span class="text-3xl mb-2 block">🤝</span>
-                    <p class="font-semibold text-purple-700">Kolaborace</p>
-                    <p class="text-sm text-gray-600">Snadná tvorba společného obsahu, daily vlogy a akce s komunitou.</p>
+                    <p id="benefit-3-title" class="font-semibold text-purple-700">Kolaborace</p>
+                    <p id="benefit-3-desc" class="text-sm text-gray-600">Snadná tvorba společného obsahu, daily vlogy a akce s komunitou.</p>
                 </div>
             </div>
         </div>
 
         <!-- Odkaz pro darování -->
         <div class="text-center p-6 bg-gray-100 rounded-xl shadow-inner">
-            <p class="mb-5 text-gray-600 text-lg font-medium">
+            <p id="donate-message" class="mb-5 text-gray-600 text-lg font-medium">
                 Každý dar nás posouvá blíž k realizaci tohoto komunitního centra. Děkujeme za podporu!
             </p>
             
@@ -163,37 +176,156 @@
         const progressFillEl = document.getElementById('progress-fill');
         const progressPercentageEl = document.getElementById('progress-percentage');
         const donateLinkEl = document.getElementById('donate-link');
-        // localModeWarningEl už není potřeba
+        
+        // JAZYKOVÁ LOKALIZACE
+        let currentLang = localStorage.getItem('fundraiserLang') || 'cs';
+
+        const TEXTS = {
+            cs: {
+                pageTitle: "Sbírka na Streamer House",
+                headerSubtitle: `Cíl: <strong>Vybudovat profesionální tvůrčí centrum</strong> – <span class="font-extrabold text-orange-600">${formatCZK(TARGET_AMOUNT)}</span>`,
+                statusLabel: "Aktuální stav",
+                loading: "Načítání...",
+                error: "Chyba DB",
+                targetAmount: formatCZK(TARGET_AMOUNT),
+                storyTitle: "Náš společný sen: Streamer House",
+                storyP1: `Ahoj, jmenuji se Damian a jako tvůrce obsahu jsem si stanovil velký cíl: vybudovat Streamer House. To nebude jen dům, ale <strong>centrální a profesionální základna</strong> pro mne a další začínající streamery z naší komunity.`,
+                storyP2: `Už žádné kompromisy s kvalitou. Streamer House nám konečně poskytne <strong>dedikované, odhlučněné setupy</strong> pro individuální vysílání a sdílené, plně vybavené studio pro velké kolaborace, podcasty a komunitní eventy. Váš příspěvek je investicí do <strong>budoucnosti lokální tvůrčí scény</strong>.`,
+                collabTitle: "🤝 Nabídka Otevřeného Přístupu a Spolupráce!",
+                collabText: `Tento projekt je stavěn pro celou komunitu! Streamer House bude mít <strong>otěvřený přístup pro všechny ambiciózní streamery a tvůrce obsahu</strong>, kteří chtějí růst, využívat profesionální zázemí a tvořit. Ať už jste velký nebo malý tvůrce, <strong>ozvěte se!</strong> Hledáme partnery, kolegy a lidi, kteří se chtějí aktivně podílet na tvorbě obsahu nové generace.`,
+                storyP3: "Podpořte nás v tomto velkém kroku. Děkujeme za důvěru a za to, že tvoříte naši komunitu!",
+                benefitsTitle: "Co Streamer House přinese?",
+                benefit1Title: "Profesionální Studio",
+                benefit1Desc: "Dedikované, odhlučněné prostory pro natáčení a podcasty.",
+                benefit2Title: "Stabilní Konekce",
+                benefit2Desc: "Ultra-rychlý a spolehlivý internet pro 4K streamování bez výpadků.",
+                benefit3Title: "Kolaborace",
+                benefit3Desc: "Snadná tvorba společného obsahu, daily vlogy a akce s komunitou.",
+                donateMessage: "Každý dar nás posouvá blíž k realizaci tohoto komunitního centra. Děkujeme za podporu!",
+                donateLinkText: "Darovat na Streamer House 💸",
+                goalReached: "Cíl dosažen! 🎉",
+                dataUnavailable: "Data nedostupná (Chyba DB)",
+            },
+            en: {
+                pageTitle: "Streamer House Fundraiser",
+                headerSubtitle: `Goal: <strong>Build a professional creative center</strong> – <span class="font-extrabold text-orange-600">${formatCZK(TARGET_AMOUNT, 'en')}</span>`,
+                statusLabel: "Current Status",
+                loading: "Loading...",
+                error: "DB Error",
+                targetAmount: formatCZK(TARGET_AMOUNT, 'en'),
+                storyTitle: "Our Common Dream: The Streamer House",
+                storyP1: `Hi, my name is Damian, and as a content creator, I've set a big goal: to build the Streamer House. This won't just be a house, but a <strong>central and professional base</strong> for me and other aspiring streamers in our community.`,
+                storyP2: `No more compromises on quality. The Streamer House will finally provide us with <strong>dedicated, soundproofed setups</strong> for individual streaming and a shared, fully equipped studio for large collaborations, podcasts, and community events. Your contribution is an investment in the <strong>future of the local creator scene</strong>.`,
+                collabTitle: "🤝 Open Access and Collaboration Offer!",
+                collabText: `This project is built for the entire community! The Streamer House will have <strong>open access for all ambitious streamers and content creators</strong> who want to grow, utilize professional facilities, and create. Whether you are a large or small creator, <strong>reach out!</strong> We are looking for partners, colleagues, and people who want to actively participate in creating next-generation content.`,
+                storyP3: "Support us in this big step. Thank you for your trust and for being part of our community!",
+                benefitsTitle: "What Will the Streamer House Bring?",
+                benefit1Title: "Professional Studio",
+                benefit1Desc: "Dedicated, soundproofed spaces for filming and podcasts.",
+                benefit2Title: "Stable Connection",
+                benefit2Desc: "Ultra-fast and reliable internet for 4K streaming without outages.",
+                benefit3Title: "Collaboration",
+                benefit3Desc: "Easy creation of shared content, daily vlogs, and community events.",
+                donateMessage: "Every donation moves us closer to realizing this community center. Thank you for your support!",
+                donateLinkText: "Donate to Streamer House 💸",
+                goalReached: "Goal Reached! 🎉",
+                dataUnavailable: "Data Unavailable (DB Error)",
+            }
+        };
 
         /**
-         * Formátuje číslo jako měnu Kč.
+         * Formátuje číslo jako měnu. Používá CZK pro 'cs' a EUR pro 'en' pro ukázku lokalizace.
          */
-        function formatCZK(amount) {
-            return new Intl.NumberFormat('cs-CZ', {
-                style: 'currency',
-                currency: 'CZK',
-                minimumFractionDigits: 0
-            }).format(amount);
+        function formatCZK(amount, lang = currentLang) {
+            if (lang === 'cs') {
+                return new Intl.NumberFormat('cs-CZ', {
+                    style: 'currency',
+                    currency: 'CZK',
+                    minimumFractionDigits: 0
+                }).format(amount);
+            } else { // 'en'
+                // Použijeme CZK, ale s anglickým formátováním pro konzistenci
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'CZK',
+                    minimumFractionDigits: 0
+                }).format(amount).replace('CZK', 'CZK');
+            }
         }
         
+        /**
+         * Přepíná texty na stránce do zvoleného jazyka.
+         */
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('fundraiserLang', lang);
+            const texts = TEXTS[lang];
+            
+            // Aktualizace atributu lang v HTML elementu
+            document.documentElement.lang = lang;
+            
+            // Aktualizace titulku stránky a hlavních textů
+            document.getElementById('page-title').textContent = texts.pageTitle;
+            document.getElementById('header-title').textContent = "Streamer House Fundraiser 🏠"; // Nezměnitelné
+            document.getElementById('header-subtitle').innerHTML = texts.headerSubtitle;
+            document.getElementById('status-label').textContent = texts.statusLabel;
+            document.getElementById('target-amount').textContent = texts.targetAmount;
+
+            // Příběh a Kolaborace
+            document.getElementById('story-title').textContent = texts.storyTitle;
+            document.getElementById('story-p1').innerHTML = texts.storyP1;
+            document.getElementById('story-p2').innerHTML = texts.storyP2;
+            document.getElementById('collab-title').textContent = texts.collabTitle;
+            document.getElementById('collab-text').innerHTML = texts.collabText;
+            document.getElementById('story-p3').textContent = texts.storyP3;
+
+            // Benefity
+            document.getElementById('benefits-title').textContent = texts.benefitsTitle;
+            document.getElementById('benefit-1-title').textContent = texts.benefit1Title;
+            document.getElementById('benefit-1-desc').textContent = texts.benefit1Desc;
+            document.getElementById('benefit-2-title').textContent = texts.benefit2Title;
+            document.getElementById('benefit-2-desc').textContent = texts.benefit2Desc;
+            document.getElementById('benefit-3-title').textContent = texts.benefit3Title;
+            document.getElementById('benefit-3-desc').textContent = texts.benefit3Desc;
+
+            // Darování
+            document.getElementById('donate-message').textContent = texts.donateMessage;
+            
+            // Nastavení aktivního tlačítka
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Znovu aktualizovat částku a tlačítko (zavoláme updateUI s aktuální částkou)
+            const currentAmountValue = parseFloat(currentAmountEl.dataset.amount || 0);
+            updateUI(currentAmountValue);
+        }
+
         /**
          * Aktualizuje uživatelské rozhraní na základě aktuálně vybrané částky.
          */
         function updateUI(totalRaised) {
             const percentage = Math.min((totalRaised / TARGET_AMOUNT) * 100, 100);
+            const texts = TEXTS[currentLang];
+            
+            // Uložení aktuální částky do datasetu pro použití při přepínání jazyka
+            currentAmountEl.dataset.amount = totalRaised;
 
-            currentAmountEl.textContent = formatCZK(totalRaised);
+            currentAmountEl.textContent = formatCZK(totalRaised, currentLang);
             progressFillEl.style.width = `${percentage}%`;
             progressPercentageEl.textContent = `${percentage.toFixed(2)}%`;
 
             if (totalRaised >= TARGET_AMOUNT) {
-                donateLinkEl.textContent = "Cíl dosažen! 🎉";
+                donateLinkEl.textContent = texts.goalReached;
                 donateLinkEl.removeAttribute('href');
                 donateLinkEl.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
                 donateLinkEl.classList.add('bg-green-600', 'cursor-not-allowed');
             } else {
                  donateLinkEl.setAttribute('href', REVOLUT_LINK);
-                 donateLinkEl.textContent = "Darovat na Streamer House 💸";
+                 donateLinkEl.textContent = texts.donateLinkText;
                  donateLinkEl.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
                  donateLinkEl.classList.remove('bg-green-600', 'cursor-not-allowed');
             }
@@ -203,6 +335,9 @@
          * Inicializuje Firebase NEBO spouští lokální simulaci.
          */
         async function initializeAppAndAuth() {
+            // Inicializace jazyka
+            switchLanguage(currentLang);
+            
             // Kontrola pro lokální spuštění: Chybí-li konfigurační klíč nebo token.
             if (Object.keys(firebaseConfig).length === 0 || !initialAuthToken) {
                 isLocalMode = true;
@@ -246,9 +381,10 @@
 
             } catch (error) {
                 console.error("Chyba při inicializaci nebo autentizaci:", error);
-                currentAmountEl.textContent = "Chyba DB";
+                const texts = TEXTS[currentLang];
+                currentAmountEl.textContent = texts.error;
                 progressPercentageEl.textContent = "ERR";
-                donateLinkEl.textContent = "Data nedostupná (Chyba DB)";
+                donateLinkEl.textContent = texts.dataUnavailable;
                 donateLinkEl.classList.add('bg-gray-400', 'pointer-events-none');
             }
         }
@@ -277,6 +413,11 @@
                 updateUI(0); // Zobrazíme nulu v případě chyby
             });
         }
+        
+        // Přidání listenerů pro přepínání jazyků
+        document.getElementById('lang-cs').addEventListener('click', () => switchLanguage('cs'));
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+
 
         // =================================================================
         // !! DŮLEŽITÉ: ÚPRAVA SIMULOVANÉ ČÁSTKY PRO LOKÁLNÍ TESTOVÁNÍ !!
